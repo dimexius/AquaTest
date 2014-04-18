@@ -4,6 +4,8 @@ import autoTests.Instruments.Driver;
 import autoTests.Instruments.TestProperties;
 import autoTests.Pages.HomePage;
 import autoTests.Pages.LoginPage;
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;

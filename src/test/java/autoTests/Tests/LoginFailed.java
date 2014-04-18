@@ -17,7 +17,7 @@ public class LoginFailed {
         driver = Driver.getDriver();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.failLogin();
-        assertNotNull(driver.findElementByXPath(".//div/div[contains(.,'Username or password wrong')]"));
-
+        assertNotNull(driver.findElementByXPath(".//li[contains(.,'Invalid email or password')]"));
+        driver.close();
     }
 }

@@ -13,15 +13,22 @@ public class TestProperties {
 
     protected static void loadProperties() {
         properties = new Properties();
-        try (
-                FileInputStream inputStream = new FileInputStream(System.getProperty("test.properties.file"))
-        ){
-            properties.load(inputStream);
-        } catch (IOException e) {
-            throw new RuntimeException("Can't load test properties. Don't know what to test.", e);
+
+        try {
+            try (
+                    FileInputStream inputStream = new FileInputStream("test.properties")
+            ){
+                properties.load(inputStream);
+            } catch (IOException e) {
+                throw new RuntimeException("Can't load test properties. Don't know what to test.", e);
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
         }
         properties.putAll(System.getProperties());
     }
+
+
 
     public static String get(String key) {
         if (properties == null) {
