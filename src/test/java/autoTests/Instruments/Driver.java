@@ -84,7 +84,7 @@ public class Driver extends RemoteWebDriver {
     }
 
     public void waitForAllRequests() {
-        waiter.doWait("return window.$zopim && !(Ext.Ajax.latestId in Ext.Ajax.requests);");
+        waiter.doWait("return window.!(Ext.Ajax.latestId in Ext.Ajax.requests);");
     }
 
     /**

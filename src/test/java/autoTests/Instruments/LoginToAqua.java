@@ -1,4 +1,4 @@
-package autoTests.Tests;
+package autoTests.Instruments;
 
 import autoTests.Instruments.Driver;
 import autoTests.Instruments.TestProperties;
@@ -24,16 +24,13 @@ public abstract class LoginToAqua {
         driver.getFromBase("/login");
         LoginPage login = new LoginPage(driver);
         HomePage home = login.loginTo(TestProperties.get("userLogin"), TestProperties.get("userPassword"));
-        assertTrue(home.getLogoutText().contains("logout"));
+        assertTrue(home.getLogoutText().contains("Logout"));
     }
 
-    //@AfterClass
+    @AfterClass
     public static void tearDown() {
         driver.findElement(By.xpath("//a[contains(.,'Logout')]")).click();
-        //Login page script stops on the start of overrides.js - so no RF namespace.
-        driver.waitByJS("return !!window.Ext && Ext.USE_NATIVE_JSON;");
-        //Check for logout button.
-        driver.findElement(By.xpath("//span[contains(.,'Login')]"));
+        driver.findElement(By.xpath("//span[contains(.,'Login')]")).getText();
     }
 
 }

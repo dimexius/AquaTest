@@ -15,14 +15,13 @@ import org.openqa.selenium.By;
             this.driver = driver;
         }
 
-        public HomePage loginTo(String username, String userPassword){
-            enterCredentials(username, userPassword);
+        public HomePage loginTo(String userName, String userPassword){
+            enterCredentials(userName, userPassword);
             return new HomePage(driver);
-
 
         }
 
-        private void enterCredentials(String username, String userPassword) {
+        public void enterCredentials(String username, String userPassword) {
             driver.findElement(By.xpath(".//input[@id='username']")).sendKeys(username);
             driver.findElement(By.xpath(".//input[@id='password']")).sendKeys(userPassword);
             driver.findElement(By.xpath(".//button[contains(.,'LOGIN')]")).click();
@@ -35,12 +34,10 @@ import org.openqa.selenium.By;
 
         // Login with incorrect username and userpassword
         public void failLogin() throws InterruptedException {
-            //driver.getFromBase("login");
+            driver.getFromBase("/login");
             LoginPage login = new LoginPage(driver);
-
             login.enterCredentials(TestProperties.get("userIncorrectLogin"), TestProperties.get("userIncorrectPassword"));
-
-
+            driver.findElement(By.xpath(".//button[contains(.,'LOGIN')]")).click();
 
         }
 
