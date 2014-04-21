@@ -38,9 +38,37 @@ public class CreateSegment extends LoginToAqua{
         HomePage home = new HomePage(driver);
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        // Click on link "create segment"
         SegmentCreatePage segmentPage = home.linkCreatesegment();
 
-        segmentPage.setSegmentName("testname");
+        //set random segment name
+        segmentPage.setSegmentName();
+
+        segmentPage.setSegmentDescription();
+
+        segmentPage.setAgeRange();
+
+        segmentPage.setBirthday();
+
+        segmentPage.setGender();
+
+        segmentPage.chooseLanguage();
+
+        segmentPage.setNumberUsed();
+
+        segmentPage.chooseOs();
+
+        segmentPage.chooseDevice();
+
+        segmentPage.addDeviceId();
+
+        segmentPage.defineGeoArea();
+
+        segmentPage.clickCreateSegment();
+
+        segmentPage.sortByCreation();
+
 
     }
 

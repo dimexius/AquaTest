@@ -14,8 +14,8 @@ import org.junit.runners.Suite;
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
-            LoginFailed.class,
-            CreateSegment.class
+            //LoginFailed.class,
+            CreateSegment.class,
 
     })
 
