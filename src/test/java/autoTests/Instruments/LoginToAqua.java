@@ -30,7 +30,7 @@ public abstract class LoginToAqua {
     @AfterClass
     public static void tearDown() {
         driver.findElement(By.xpath("//a[contains(.,'Logout')]")).click();
-        driver.findElement(By.xpath("//span[contains(.,'Login')]")).getText();
+        driver.findElement(By.xpath(".//button[contains(.,'LOGIN')]")).getText();
     }
 
 }

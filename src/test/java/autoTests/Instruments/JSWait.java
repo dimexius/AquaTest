@@ -46,6 +46,4 @@ public class JSWait extends WebDriverWait implements Function<WebDriver, Boolean
     }
 
 
-
-
 }
