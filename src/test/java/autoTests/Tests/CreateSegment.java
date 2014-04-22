@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class CreateSegment extends LoginToAqua{
 
-    @BeforeClass
+   /* @BeforeClass
     public static void setUp() throws InterruptedException{
         driver = Driver.getDriver();
         driver.getFromBase("/login");
@@ -28,7 +28,7 @@ public class CreateSegment extends LoginToAqua{
         HomePage home = login.loginTo(TestProperties.get("userLogin"), TestProperties.get("userPassword"));
         assertTrue(home.getLogoutText().contains("Logout"));
     }
-
+*/
 
     @Test
     public void testCreateSegment() throws InterruptedException{
@@ -40,7 +40,7 @@ public class CreateSegment extends LoginToAqua{
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         // Click on link "create segment"
-        SegmentCreatePage segmentPage = home.linkCreatesegment();
+        SegmentCreatePage segmentPage = home.linkCreateSegment();
 
         //set random segment name
         segmentPage.setSegmentName();

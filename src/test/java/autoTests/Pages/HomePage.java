@@ -20,10 +20,16 @@ public class HomePage {
     }
 
 
-    public SegmentCreatePage linkCreatesegment() {
+    public SegmentCreatePage linkCreateSegment() {
         driver.findElementByXPath(" .//a[contains(.,'+ Create a segment')]").click();
         driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
         return new SegmentCreatePage(driver);
+    }
+
+    public AppListPage linkSettings() {
+        driver.findElementByXPath(".//a[@href='/settings/projects' and contains(.,'settings')]").click();
+        driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+        return new AppListPage(driver);
     }
 }
 

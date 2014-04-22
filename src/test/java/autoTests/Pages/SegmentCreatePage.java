@@ -3,6 +3,7 @@ package autoTests.Pages;
 import autoTests.Instruments.Driver;
 import autoTests.Instruments.Generators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 
 /**
@@ -18,7 +19,7 @@ public class SegmentCreatePage {
     private String usedFrom = "2";
     private String usedTo = "5";
     private String udid = Generators.getRandomText(4)+ Math.random() + Generators.getRandomText(4);
-
+    private String segmentId;
 
     public SegmentCreatePage(Driver driver) {
         this.driver = driver;
@@ -28,12 +29,14 @@ public class SegmentCreatePage {
     public void  setSegmentName() {
         driver.findElementByXPath(".//input[@placeholder = 'Name your segment']").click();
         driver.findElementByXPath(".//input[@id='users_group_form_title']").sendKeys(segmentName);
+        System.out.println("Segment name: "+segmentName);
     }
 
     // Segment random Description
     public void setSegmentDescription() {
         driver.findElementByXPath(".//textarea[@placeholder = 'Describe your segment']").click();
         driver.findElementByXPath(".//textarea[@placeholder = 'Describe your segment']").sendKeys(segmentDescription);
+        System.out.println("Segment Description: "+segmentDescription);
     }
 
     //Age range
@@ -45,6 +48,7 @@ public class SegmentCreatePage {
 
     public void clickCreateSegment() {
         driver.findElement(By.xpath(".//button[contains(.,'Create')]")).click();
+
 
     }
 
@@ -80,26 +84,34 @@ public class SegmentCreatePage {
 
     public void addDeviceId() {
         driver.findElementByXPath(".//*[@id='users_group_form_udid_input']").sendKeys(udid);
+        System.out.println("Udid: "+udid);
     }
 
-    public void defineGeoArea() {
-        driver.findElementByXPath(".//select/following-sibling::div[contains(.,'Choose country')]").click();
-        driver.findElementByXPath(".//li[contains(.,'Ukraine')]");
+    public SegmentCreatePage defineGeoArea() {
+        //choose Country
+        WebElement chooseCountryDropDown = driver.findElementByXPath(".//select/following-sibling::div[contains(.,'Choose country')]");
+        chooseCountryDropDown.click();
         driver.findElementByXPath(".//li[contains(.,'Ukraine')]").click();
-        driver.findElementByXPath(".//select/following-sibling::div[contains(.,'Choose region')]").click();
-        driver.findElementByXPath(".//li[contains(.,'Krym')]");
+        //choose Region
+        WebElement chooseRegionDropDown = driver.findElementByXPath(".//select/following-sibling::div[contains(.,'Choose region')]");
+        chooseRegionDropDown.click();
         driver.findElementByXPath(".//li[contains(.,'Krym')]").click();
-        driver.findElementByXPath(".//select/following-sibling::div[contains(.,'Choose city')]").click();
-        driver.findElementByXPath(".//li[contains(.,'Simferopol\'')]");
-        driver.findElementByXPath(".//li[contains(.,'Simferopol'')]").click();
+        //choose City
+        WebElement chooseCityDropDown = driver.findElementByXPath(".//select/following-sibling::div[contains(.,'Choose city')]");
+        chooseCityDropDown.click();
+        driver.findElementByXPath(".//li[contains(.,'Simferopol')]").click();
+
+        return this;
     }
 
     public void sortByCreation() {
+        //click on column name to sort rows by creation
         driver.findElementByXPath(".//th/a[contains(.,'Created on')]").click();
-        driver.findElementByXPath(".//th/a[contains(.,'Created on')]").click();
-        //sort by creation
-        driver.findElementByXPath(".//a[@class='asc']").isDisplayed();
-        driver.findElementByXPath(".//tr/td[contains(.,'segmentName')]").isDisplayed();
-
+        //click sort by creation
+        driver.findElementByXPath(".//a[@class='asc']").click();
+        //find created segment
+        driver.findElementByXPath(".//tr/td[contains(.,'"+segmentName+"')]").isDisplayed();
+        segmentId = driver.findElementByXPath(".//td[contains(.,'"+segmentName+"')]/following-sibling::td[1]").getText();
+        System.out.println("segmentId: "+segmentId);
     }
 }
