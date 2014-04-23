@@ -33,6 +33,7 @@ public class CreateSegment extends LoginToAqua{
     @Test
     public void testCreateSegment() throws InterruptedException{
 
+        driver = Driver.getDriver();
 
         //Login to Aqua and Open Home page
         HomePage home = new HomePage(driver);
@@ -69,7 +70,7 @@ public class CreateSegment extends LoginToAqua{
 
         segmentPage.sortByCreation();
 
-
+        home.logoutFromAqua();
     }
 
 }

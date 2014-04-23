@@ -17,6 +17,8 @@ public class AddNewApplication extends LoginToAqua{
     @Test
     public void testAddNewApplication() throws InterruptedException
     {
+        driver= Driver.getDriver();
+
         //Login to Aqua and Open Home page
         HomePage home = new HomePage(driver);
 
@@ -54,11 +56,14 @@ public class AddNewApplication extends LoginToAqua{
         // verify content on Connectionas tab
         appPage.verifyConnectionsTab();
 
+        //verify AppAnnie tab content
         appPage.verifyAppannieTab();
 
+        //verify Share tab content
         appPage.verifyShareTab();
 
-
+        //Logout from application
+        home.logoutFromAqua();
     }
 
 

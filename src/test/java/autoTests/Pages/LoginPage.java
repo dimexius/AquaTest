@@ -32,14 +32,23 @@ import org.openqa.selenium.By;
         }
 
 
-        // Login with incorrect username and userpassword
+        // Unused method --  Login with incorrect username and userpassword
         public void failLogin() throws InterruptedException {
-            driver.getFromBase("/login");
             LoginPage login = new LoginPage(driver);
             login.enterCredentials(TestProperties.get("userIncorrectLogin"), TestProperties.get("userIncorrectPassword"));
             driver.findElement(By.xpath(".//button[contains(.,'LOGIN')]")).click();
 
         }
 
-    }
+
+        public void checkFooterLinks(){
+            driver.findElementByXPath(".//a[@href='http://developers.oysterlabs.com/terms' and contains(.,'Terms')]").isDisplayed();
+            driver.findElementByXPath(".//a[@href='http://developers.oysterlabs.com/privacy' and contains(.,'Privacy policy')]").isDisplayed();
+            driver.findElementByXPath(".//a[@href='mailto:feedback@oysterlabs.com' and contains(.,'Feedback')]").isDisplayed();
+            driver.findElementByXPath(".//a[@href='http://oysterlabs.com/#contact' and contains(.,'Contact us')]").isDisplayed();
+
+        }
+
+
+}
 

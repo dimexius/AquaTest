@@ -1,6 +1,7 @@
 package autoTests.Pages;
 
 import autoTests.Instruments.Driver;
+import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,6 +31,11 @@ public class HomePage {
         driver.findElementByXPath(".//a[@href='/settings/projects' and contains(.,'settings')]").click();
         driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
         return new AppListPage(driver);
+    }
+
+    public void logoutFromAqua() {
+        driver.findElementByXPath(".//a[@href='/logout' and contains(.,'Logout')]").click();
+        driver.findElement(By.xpath(".//button[contains(.,'LOGIN')]")).isDisplayed();
     }
 }
 
