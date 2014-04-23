@@ -62,6 +62,10 @@ public class AddNewApplication extends LoginToAqua{
         //verify Share tab content
         appPage.verifyShareTab();
 
+        appPage.addNewUser();
+
+
+
         //Logout from application
         home.logoutFromAqua();
     }

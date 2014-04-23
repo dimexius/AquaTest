@@ -2,6 +2,7 @@ package autoTests.Pages;
 
 import autoTests.Instruments.Driver;
 import autoTests.Instruments.Generators;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -113,5 +114,11 @@ public class SegmentCreatePage {
         driver.findElementByXPath(".//tr/td[contains(.,'"+segmentName+"')]").isDisplayed();
         segmentId = driver.findElementByXPath(".//td[contains(.,'"+segmentName+"')]/following-sibling::td[1]").getText();
         System.out.println("segmentId: "+segmentId);
+    }
+
+    public void deleteSegment() {
+        driver.findElementByXPath(".//tr[contains(.,'"+segmentName+"')]/td/a[contains(.,'Remove')]").click();
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
     }
 }

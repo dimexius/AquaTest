@@ -70,6 +70,8 @@ public class CreateSegment extends LoginToAqua{
 
         segmentPage.sortByCreation();
 
+        segmentPage.deleteSegment();
+
         home.logoutFromAqua();
     }
 

@@ -14,10 +14,10 @@ import org.junit.runners.Suite;
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
-            //CheckFooterLinks.class,
-            //LoginFailed.class,
-            //CreateSegment.class,
-            //AddNewApplication.class
+            CheckFooterLinks.class,
+            LoginFailed.class,
+            CreateSegment.class,
+            AddNewApplication.class
 
     })
 
