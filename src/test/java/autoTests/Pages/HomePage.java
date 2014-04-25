@@ -37,6 +37,12 @@ public class HomePage {
         driver.findElementByXPath(".//a[@href='/logout' and contains(.,'Logout')]").click();
         driver.findElement(By.xpath(".//button[contains(.,'LOGIN')]")).isDisplayed();
     }
+
+    public AccountSettingsPage linkCreateCustomEvent() {
+        driver.findElementByXPath(".//a[contains(.,'+ Create custom events')]").click();
+        return new AccountSettingsPage(driver);
+    }
+
 }
 
 

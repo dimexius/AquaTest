@@ -59,9 +59,11 @@ public class AddNewApplication extends LoginToAqua{
         //verify AppAnnie tab content
         appPage.verifyAppannieTab();
 
+        driver.getPageSource();
         //verify Share tab content
         appPage.verifyShareTab();
 
+        driver.getPageSource();
         appPage.addNewUser();
 
 
@@ -69,11 +71,6 @@ public class AddNewApplication extends LoginToAqua{
         //Logout from application
         home.logoutFromAqua();
     }
-
-
-
-
-
 
 
 }

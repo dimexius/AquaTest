@@ -2,6 +2,7 @@ package autoTests.Instruments;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -10,6 +11,7 @@ import org.openqa.selenium.interactions.Mouse;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -24,6 +26,7 @@ public class Driver extends RemoteWebDriver {
     protected static RemoteWebDriver getPhantomJSDriver(){
         return new PhantomJSDriver(new DesiredCapabilities());
     }
+
     protected static RemoteWebDriver getFirefoxDriver(){
         // For Windows :
         // System.setProperty("webdriver.firefox.bin","C:/Program Files (x86)/Mozilla Firefox/firefox.exe");
@@ -33,6 +36,12 @@ public class Driver extends RemoteWebDriver {
         // PROFILE_NAME - имя профиля без указания пути, например, "default"
         FirefoxProfile profile = allProfiles.getProfile("default");
         return new FirefoxDriver(profile);
+    }
+
+    protected static RemoteWebDriver getChromeDriver(){
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+        return new ChromeDriver(new DesiredCapabilities());
+
     }
 
     /**
@@ -52,6 +61,9 @@ public class Driver extends RemoteWebDriver {
                 break;
             case "FirefoxDriver":
                 forWrap = getFirefoxDriver();
+                break;
+            case "ChromeDriver":
+                forWrap = getChromeDriver();
                 break;
             default:
                 throw new RuntimeException("I don't know the driver you've specified.");
