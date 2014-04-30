@@ -18,7 +18,8 @@ import org.junit.runners.Suite;
             //LoginFailed.class,
             //CreateSegment.class,
             //AddNewApplication.class
-            CreateCustomEvents.class
+            //CreateCustomEvents.class
+            CreateCampaignSimple.class
 
     })
 

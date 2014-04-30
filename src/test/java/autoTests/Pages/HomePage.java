@@ -1,6 +1,7 @@
 package autoTests.Pages;
 
 import autoTests.Instruments.Driver;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 import java.util.concurrent.TimeUnit;
@@ -43,6 +44,11 @@ public class HomePage {
         return new AccountSettingsPage(driver);
     }
 
+    public AccountSettingsPage linkCreateCampaign() {
+        driver.findElementByXPath(".//a[contains(.,'+ Create a campaign')]").click();
+        return new AccountSettingsPage(driver);
+
+    }
 }
 
 
