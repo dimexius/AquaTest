@@ -14,6 +14,7 @@ import org.junit.runners.Suite;
 
     @RunWith(Suite.class)
     @Suite.SuiteClasses({
+            //GoogleTest.class
             //CheckFooterLinks.class,
             //LoginFailed.class,
             //CreateSegment.class,

@@ -41,5 +41,7 @@ public class CreateCampaignSimple extends LoginToAqua{
 
         wizard.linkToDetails();
 
+
+
     }
 }
