@@ -17,7 +17,7 @@ public class CreateCampaignSimple extends LoginToAqua{
     private String nameOfCampaign = "campaign" + Generators.getRandomText(4);
     private String campaignDescription = "about" + Generators.getRandomText(30);
     private String campaignNotes = "notes" + Generators.getRandomText(15);
-
+    private String pushMessage = "message";
 
 
     @Test
@@ -41,7 +41,12 @@ public class CreateCampaignSimple extends LoginToAqua{
 
         wizard.linkToDetails();
 
+        wizard.setPushType();
 
+        wizard.addVariables();
 
+        wizard.addMessage(pushMessage);
+
+        wizard.setSound();
     }
 }
