@@ -17,8 +17,8 @@ public class HomePage {
     }
 
     // Check top section with link Logout after success login
-    public String getLogoutText() {
-        return driver.findElementByXPath("//a[contains(.,'Logout')]").getText();
+    public String checkLogoutText() {
+        return driver.findElementByXPath(".//a[@href='/logout']").getText();
     }
 
 

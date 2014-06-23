@@ -10,6 +10,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -21,10 +23,12 @@ public abstract class LoginToAqua {
     @BeforeClass   // initiation of driver and go to base URL from test.properties file
     public static void setUp() throws InterruptedException{
         driver = Driver.getDriver();
+        driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
         driver.getFromBase("/login");
         LoginPage login = new LoginPage(driver);
         HomePage home = login.loginTo(TestProperties.get("userLogin"), TestProperties.get("userPassword"));
-        assertTrue(home.getLogoutText().contains("Logout"));
+        String linkLogout = home.checkLogoutText();
+        assertTrue(linkLogout.contains("Logout"));
     }
 
     //@AfterClass
