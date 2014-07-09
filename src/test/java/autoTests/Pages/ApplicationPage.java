@@ -64,7 +64,7 @@ public class ApplicationPage {
 
     public void checkTabs() {
         driver.findElementByXPath(".//a[contains(.,'Connections')]").isDisplayed();
-        driver.findElementByXPath(".//a[contains(.,'AppAnnie')]").isDisplayed();
+        driver.findElementByXPath(".//a[contains(.,'App Annie')]").isDisplayed();
         driver.findElementByXPath(".//a[contains(.,'Share')]").isDisplayed();
 
     }

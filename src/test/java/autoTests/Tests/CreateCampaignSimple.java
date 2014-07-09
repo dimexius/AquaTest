@@ -99,6 +99,8 @@ public class CreateCampaignSimple extends LoginToAqua{
        String text = message.getText();
        assertEquals(text,"Campaign \""+nameOfCampaign+"\" saved.");
 
+       home.logoutFromAqua();
+
 
     }
 }

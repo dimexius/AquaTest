@@ -65,6 +65,8 @@ public class CreateCustomEvents extends LoginToAqua{
 
         appPage.deleteDestinationScreen();
 
+        home.logoutFromAqua();
+
     }
 
 }
