@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+import java.security.Key;
+
 /**
  * Created by dims on 30.04.14.
  */
@@ -66,6 +68,7 @@ public class CampaignPage {
     public void setPushTarget(String url) {
         WebElement targetList = driver.findElementByXPath(".//div[@class='combo-wrapper form-select push-local-link']");
         targetList.click();
+        targetList.sendKeys(Keys.DOWN);
         targetList.sendKeys(Keys.DOWN);
         driver.findElementByXPath(".//*[@id='campaign_push_href']").click();
         driver.findElementByXPath(".//*[@id='campaign_push_href']").sendKeys(url);

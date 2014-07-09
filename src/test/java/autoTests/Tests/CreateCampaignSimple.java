@@ -44,8 +44,8 @@ public class CreateCampaignSimple extends LoginToAqua{
         wizard.clickCampaignStatus();
         // set Campaign type: Notification
         wizard.setNotificationCampaign();
-        // type Campaign notes text
-        wizard.typeCampaignNotes(campaignNotes);
+        // type Campaign notes text/ Notes was reduced
+        //wizard.typeCampaignNotes(campaignNotes);
 
         // click on link "Details" to open step 2
         wizard.linkToStep2();

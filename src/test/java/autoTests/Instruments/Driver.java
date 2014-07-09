@@ -29,7 +29,7 @@ public class Driver extends RemoteWebDriver {
 
     protected static RemoteWebDriver getFirefoxDriver(){
         // For Windows :
-        System.setProperty("webdriver.firefox.bin","C:/Program Files (x86)/Mozilla Firefox/firefox.exe");
+        //System.setProperty("webdriver.firefox.bin","C:/Program Files (x86)/Mozilla Firefox/firefox.exe");
         // Or add its *.exe to %path%.
         //
         ProfilesIni allProfiles = new ProfilesIni();

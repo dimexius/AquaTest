@@ -27,7 +27,7 @@ import org.junit.runners.Suite;
 
     public class AllTest {
 
-        @AfterClass
+        //@AfterClass
         public static void someAfter() {
          Driver.shutdown();
         }
